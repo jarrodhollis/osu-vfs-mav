@@ -22,6 +22,7 @@ control_packet wifi_stream::get_control_packet()
 
 		if (parser.parse_string(data_string))
 		{
+			std::cout << data_string << std::endl;
 			current_packet.override = parser.get_bool("enable_override");
 			current_packet.pitch = parser.get_double("pitch");
 			current_packet.yaw = parser.get_double("yaw");

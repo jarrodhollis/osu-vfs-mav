@@ -24,7 +24,14 @@ int main(int argc, char *argv[])
 		pwm_packet = pwm.get_control_packet();
 		if (wifi.is_data_available())
 		{
-			wifi_packet = wifi.get_control_packet();
+			try
+			{
+				wifi_packet = wifi.get_control_packet();
+			}
+			catch (std::exception &e)
+			{
+				std::cout << e.what() << std::endl;
+			}
 		}
 		control_packet priority_packet = determine_priority(pwm_packet, wifi_packet);
 
