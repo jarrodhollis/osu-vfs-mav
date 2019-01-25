@@ -9,13 +9,14 @@ class json_parser
 	private:
 		jsmn_parser parser;
 		jsmntok_t *tokens;
-		const char *json_string;
+		char *json_string;
 		unsigned int num_tokens_alloc;
 		unsigned int num_tokens_read;
 	protected:
 		std::string get_token_string(int);
 	public:
 		json_parser(unsigned int);
+		~json_parser();
 
 		int parse_string(std::string);
 		std::string get_string(std::string);

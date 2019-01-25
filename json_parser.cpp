@@ -16,11 +16,17 @@ json_parser::json_parser(unsigned int num_tokens_alloc)
 	jsmn_init(&parser);
 }
 
+json_parser::~json_parser()
+{
+	delete [] tokens;
+}
+
 int json_parser::parse_string(std::string json_string)
 {
 	jsmn_init(&parser);
 	memset(tokens, 0, sizeof(tokens[0]) * num_tokens_alloc);
-	this->json_string = json_string.c_str();
+	this->json_string = new char[json_string.length() + 1];
+	strcpy(this->json_string, json_string.c_str());
 	int result = jsmn_parse(&parser, this->json_string, strlen(this->json_string),
 			tokens, num_tokens_alloc);
 	num_tokens_read = (result > 0 ? result : 0);
