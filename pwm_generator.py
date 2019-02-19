@@ -2,8 +2,8 @@ from adafruit_servokit import ServoKit
 
 def pwm_generator_main():
 	kit = ServoKit(channels=16)
-	pwm.set_pwm_freq(60)
-	pwm.set_pwm(0, 0, 491)
+	kit.set_pwm_freq(60)
+	kit.set_pwm(0, 0, 491)
 	while True:
 		True
 
