@@ -8,9 +8,12 @@ def pwm_generator_main():
 	hat = adafruit_pca9685.PCA9685(i2c)
 	hat.frequency = 60
 	pwm_channel = hat.channels[0]
-	pwm_channel.duty_cycle = 7864
+
 	while True:
-		True
+		pwm_channel.duty_cycle = 4325
+		time.sleep(3)
+		pwm_channel.duty_cycle = 7864
+		time.sleep(3)
 
 if __name__ == '__main__':
 	pwm_generator_main()
