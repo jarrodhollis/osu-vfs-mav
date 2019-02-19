@@ -41,7 +41,7 @@ def control_arbiter_main():
 		for key in priority_packet:
 			print(key + ": " + str(priority_packet[key]))
 
-		time.sleep(3)
+		time.sleep(1/60)
 
 if __name__ == '__main__':
 	control_arbiter_main()

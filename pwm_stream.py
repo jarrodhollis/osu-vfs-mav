@@ -15,14 +15,14 @@ class PwmStream:
 		self.current_packet['yaw'] = self.yaw_pwm
 		self.current_packet['roll'] = self.roll_pwm
 		self.current_packet['throttle'] = self.throttle_pwm
-		self.current_packet['enable_override'] = True if self.override_pwm > 0.5 else False
-		self.current_packet['engage_hook'] = True if self.hook_pwm > 0.5  else False
+		self.current_packet['enable_override'] = True if self.override_pwm > 0.95 else False
+		self.current_packet['engage_hook'] = True if self.hook_pwm > 0.95  else False
 		return self.current_packet
 
 	def generate_sample(self):
-		self.pitch_pwm = random.random()
-		self.yaw_pwm = random.random()
-		self.roll_pwm = random.random()
-		self.throttle_pwm = random.random()
-		self.override_pwm = random.random()
-		self.hook_pwm = random.random()
+		self.pitch_pwm = random.uniform(1.1, 2)
+		self.yaw_pwm = random.uniform(1.1, 2)
+		self.roll_pwm = random.uniform(1.1, 2)
+		self.throttle_pwm = random.uniform(1.1, 2)
+		self.override_pwm = random.uniform(1.1, 2)
+		self.hook_pwm = random.uniform(1.1, 2)
