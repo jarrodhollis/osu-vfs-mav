@@ -1,7 +1,7 @@
 import board
 import busio
 import adafruit_pca9685
-
+import time
 
 def pwm_generator_main():
 	i2c = busio.I2C(board.SCL, board.SDA)
