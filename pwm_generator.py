@@ -4,7 +4,7 @@ import adafruit_pca9685
 
 
 def pwm_generator_main():
-	i2c = busio.I2C(board.SCL, board.SCA)
+	i2c = busio.I2C(board.SCL, board.SDA)
 	hat = addafruit_pca9685.PCA9685(i2c)
 	hat.frequency = 60
 	pwm_channel = hat.channels[0]
