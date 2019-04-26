@@ -38,8 +38,8 @@ def main():
 		ccw_pwm = (0.0009 * thrust / 2 * 2 * (1 - yaw) + 0.0011)
 
 		# drive PWM bonnet
-		pwm_cw_channel.duty_cycle = linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864)
-		pwm_ccw_channel.duty_cycle = linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864)
+		pwm_cw_channel.duty_cycle = int(linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864))
+		pwm_ccw_channel.duty_cycle = int(linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864))
 
 		print('thrust: ' + str(thrust) + ' yaw: ' + str(yaw))
 
