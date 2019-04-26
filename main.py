@@ -26,8 +26,8 @@ def main():
 
 	while True:
 		# read input
-		thrust_pwm = spi.readbytes(4)
-		yaw_pwm = spi.readbytes(4)
+		thrust_pwm = 0.002 # spi.readbytes(4)
+		yaw_pwm = 0.0016 # spi.readbytes(4)
 
 		# translate output
 		thrust = linear_map(thrust_pwm, 0.0011, 0.002, 0, 1)
@@ -40,6 +40,8 @@ def main():
 		# drive PWM bonnet
 		pwm_cw_channel.duty_cycle = linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864)
 		pwm_ccw_channel.duty_cycle = linear_map(cw_pwm, 0.0011, 0.002, 4325, 7864)
+
+		print('thrust: ' + str(thrust) + ' yaw: ' + str(yaw))
 
 if __name__ == '__main__':
 	main()
